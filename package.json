@@ -1,0 +1,14 @@
+{
+  "name": "optic-custom-rules",
+  "version": "1.0.0",
+  "scripts": {
+    "publish": "optic ruleset publish build/main.js --token=$(grep OPTIC_TOKEN .env | cut -d '=' -f2)",
+    "build": "esbuild src/main.ts --bundle --platform=node --minify --outfile=build/main.js",
+    "typecheck": "tsc src/main.ts"
+  },
+  "dependencies": {
+    "@useoptic/rulesets-base": "^0.34.2",
+    "esbuild": "^0.15.11",
+    "typescript": "^4.8.4"
+  }
+}
