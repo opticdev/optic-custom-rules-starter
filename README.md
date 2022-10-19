@@ -1,6 +1,6 @@
 Things to do
-- Add in typescript configuration
 - decide whether optic CLI should be installed separately or globally
+- add local running + tests
 
 - Write up README
   - quick start guide
@@ -9,6 +9,8 @@ Things to do
     - how to publish
     - token
   - how it works
+    - how it's currently set up
+    - how to customize your own
   - customizing it yourself
 
 - test out end to end flow (i.e. fresh package, install)

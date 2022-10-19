@@ -2,9 +2,9 @@
   "name": "optic-custom-rules",
   "version": "1.0.0",
   "scripts": {
-    "publish": "optic ruleset publish build/main.js --token=$(grep OPTIC_TOKEN .env | cut -d '=' -f2)",
-    "build": "esbuild src/main.ts --bundle --platform=node --minify --outfile=build/main.js",
-    "typecheck": "tsc src/main.ts"
+    "publish": "OPTIC_TOKEN==$(grep OPTIC_TOKEN .env | cut -d '=' -f2) optic ruleset publish build/main.js",
+    "build": "esbuild src/main.ts --bundle --platform=node --sourcemap=inline --minify --outfile=build/main.js",
+    "typecheck": "tsc"
   },
   "dependencies": {
     "@useoptic/rulesets-base": "^0.34.2",
