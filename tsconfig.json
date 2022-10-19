@@ -3,6 +3,7 @@
     "noEmit": true,
     "target": "es2017",
     "rootDir": "src",
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "esModuleInterop": true
   },
 }

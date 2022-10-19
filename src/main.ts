@@ -1,6 +1,6 @@
 import { Matchers, SpecificationRule } from "@useoptic/rulesets-base";
 
-const MustHaveApiVersion = new SpecificationRule({
+export const MustHaveApiVersion = new SpecificationRule({
   name: "Must have api version",
   rule: (specificationAssertions) => {
     specificationAssertions.requirement.matches({

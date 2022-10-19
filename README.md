@@ -1,9 +1,9 @@
 Things to do
-- decide whether optic CLI should be installed separately or globally
 - add local running + tests
 
 - Write up README
   - quick start guide
+    - install optic CLI globally
     - how to write rules
     - how to build
     - how to publish
