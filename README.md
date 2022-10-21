@@ -21,7 +21,7 @@ Scripts:
 
 ### Writing your own rules
 
-This starter template includes [ruleset package](https://github.com/opticdev/optic/tree/main/projects/rulesets-base) which can be used to write rules on different parts of OpenAPI specs. 
+This starter template includes [rulesets-base](https://github.com/opticdev/optic/tree/main/projects/rulesets-base) which is used to write rules on different parts of OpenAPI specs. 
 
 ```typescript
 const has201StatusCode = new OperationRule({
@@ -56,7 +56,7 @@ const results = TestHelpers.runRulesWithInputs(rules, beforeSpec, afterSpec) // 
 
 ### Building and publishing your rulesets
 
-Published rulesets must be bundled into a single file, that exports the name of the ruleset and the rules (see [format below](#customizing-your-ruleset-package)).
+Published rulesets must be bundled into a single file that exports the name of the ruleset and the rules (see [format below](#customizing-your-ruleset-package)).
 
 This starter template comes pre-configured with a build and publish step that matches the expected output (see the scripts field in the package.json). To publish your ruleset, follow the steps below:
 - run `npm run build` - this will bundle the `src/main.ts` code into a single JS file and output it to `build/main.js`
@@ -70,7 +70,7 @@ A token is required to upload rules to Optic. You can get a token by signing up 
 
 ### Using your rulesets in optic diff and Optic Cloud
 
-Once you have published your ruleset, you can refer to your uploaded ruleset in local runs and optic cloud by it's identifier (`@org-slug/ruleset-name`). You can specify this ruleset in your `optic.dev.yml` file for optic diff running, and specify which rules to run in Optic cloud in the ruleset page on our [app](https://app.useoptic.com).
+Once you have published your ruleset, you can refer to your uploaded ruleset in local runs and optic cloud by it's identifier `@org-slug/ruleset-name` (by default, we identify rulesets in your org). You can specify this ruleset in your `optic.dev.yml` file for optic diff running, and specify which rules to run in Optic cloud in the ruleset page on our [app](https://app.useoptic.com).
 
 
 ## Customizing your ruleset package
@@ -80,9 +80,9 @@ If you want to update the build environment, CI setup, dependencies or any other
 The main requirements for a published ruleset are:
 - Must be a single bundled JS file
   - i.e. must not import any other packages at run time
-- The JS file must include default exports of in the shape of
+- The JS file must include default exports of in the shape of (files should use ES Modules)
   ```javascript
-    module.exports = {
+    export default {
       name: 'ruleset-name',
       rules: [] // Any valid rule or ruleset, e.g. SpecificationRule, Ruleset, etc
     }
