@@ -8,7 +8,7 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@useoptic/rulesets-base": "^0.34.2"
+    "@useoptic/rulesets-base": "*"
   },
   "devDependencies": {
     "esbuild": "^0.15.11",
