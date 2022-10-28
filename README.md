@@ -82,8 +82,15 @@ The main requirements for a published ruleset are:
   - i.e. must not import any other packages at run time
 - The JS file must include default exports of in the shape of (files should use ES Modules)
   ```javascript
+    import { Ruleset } from '@useoptic/rulesets-base';
     export default {
       name: 'ruleset-name',
-      rules: [] // Any valid rule or ruleset, e.g. SpecificationRule, Ruleset, etc
+      description: 'a description of the ruleset',
+      configSchema: {}, // A JSONSchema object - used to validate the configuration inputs
+      // A function that receives the passed in configuration (defined above)
+      rulesetConstructor: (config: Configuration): Ruleset => {
+        // modify config as necessary
+        return new Ruleset({...});
+      }
     }
     ```
