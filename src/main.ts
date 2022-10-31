@@ -1,4 +1,4 @@
-import { Matchers, SpecificationRule } from "@useoptic/rulesets-base";
+import { Matchers, Ruleset, SpecificationRule } from "@useoptic/rulesets-base";
 
 export const MustHaveApiVersion = new SpecificationRule({
   name: "Must have api version",
@@ -13,5 +13,21 @@ export const MustHaveApiVersion = new SpecificationRule({
 
 export default {
   name: "example-ruleset",
-  rules: [MustHaveApiVersion],
+  description: "An example ruleset that validates things in OpenAPI",
+  // A JSON schema object
+  configSchema: {
+    type: "object",
+    properties: {
+      required_on: {
+        type: "string",
+        enum: ["always", "added"],
+      },
+    },
+  },
+  rulesetConstructor: (options: { required_on: "always" | "added" }) => {
+    return new Ruleset({
+      name: "example-ruleset",
+      rules: [MustHaveApiVersion],
+    });
+  },
 };
