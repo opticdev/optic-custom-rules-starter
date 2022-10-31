@@ -86,7 +86,9 @@ The main requirements for a published ruleset are:
     export default {
       name: 'ruleset-name',
       description: 'a description of the ruleset',
-      configSchema: {}, // A JSONSchema object - used to validate the configuration inputs
+      // A JSONSchema object - used to validate the configuration inputs
+      // Leave this as an empty object if you want to opt out of validating the configuration input
+      configSchema: {},
       // A function that receives the passed in configuration (defined above)
       rulesetConstructor: (config: Configuration): Ruleset => {
         // modify config as necessary
