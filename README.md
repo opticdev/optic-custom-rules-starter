@@ -15,7 +15,8 @@ Start by running `npm install` or `yarn install` to install the relevant node_mo
 
 Scripts:
 - `npm run build` - builds and minifies a ruleset package.
-- `npm run publish` - publishes a built ruleset package (from `npm run build`) to optic cloud. Requires an optic token, which is passed in via the `OPTIC_TOKEN` environment variable. See `.env.example` for details.
+- `npm run publish` - publishes a built ruleset package (from `npm run build`) to optic cloud. 
+  > Ensure that you set the `OPTIC_TOKEN` environment variable. You can get a token at https://app.useoptic.com
 - `npm run test` - runs tests
 - `npm run typecheck` - runs typechecking
 
