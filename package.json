@@ -1,5 +1,5 @@
 {
-  "name": "optic-custom-rules",
+  "name": "name-of-custom-rules-package",
   "version": "1.0.0",
   "scripts": {
     "upload": "optic ruleset publish build/main.js",
