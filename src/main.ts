@@ -1,12 +1,10 @@
-import { Matchers, Ruleset, SpecificationRule } from "@useoptic/rulesets-base";
+import { Matchers, Ruleset, OperationRule } from "@useoptic/rulesets-base";
 
-export const MustHaveApiVersion = new SpecificationRule({
-  name: "Must have api version",
-  rule: (specificationAssertions) => {
-    specificationAssertions.requirement.matches({
-      info: {
-        version: Matchers.string,
-      },
+export const MustHaveOperationDescription = new OperationRule({
+  name: "Must have description version",
+  rule: (operationAssertions) => {
+    operationAssertions.requirement.matches({
+      description: Matchers.string,
     });
   },
 });
@@ -19,16 +17,27 @@ export default {
   configSchema: {
     type: "object",
     properties: {
-      required_on: {
+      exclude_operations_with_extension: {
         type: "string",
-        enum: ["always", "added"],
       },
     },
   },
-  rulesetConstructor: (options: { required_on: "always" | "added" }) => {
+  rulesetConstructor: (options: {
+    exclude_operations_with_extension?: string;
+  }) => {
     return new Ruleset({
       name,
-      rules: [MustHaveApiVersion],
+      matches: (context) => {
+        if (options.exclude_operations_with_extension) {
+          return (
+            context.operation.raw[options.exclude_operations_with_extension] !==
+            true
+          );
+        } else {
+          return true;
+        }
+      },
+      rules: [MustHaveOperationDescription],
     });
   },
 };
