@@ -11,7 +11,7 @@ export const MustHaveApiVersion = new SpecificationRule({
   },
 });
 
-const name = "example-ruleset";
+const name = "name-of-custom-rules-package";
 export default {
   name,
   description: "An example ruleset that validates things in OpenAPI",
