@@ -15,7 +15,8 @@ Start by running `npm install` or `yarn install` to install the relevant node_mo
 
 Scripts:
 - `npm run build` - builds and minifies a ruleset package.
-- `npm run publish` - publishes a built ruleset package (from `npm run build`) to optic cloud. Requires an optic token, which is passed in via the `OPTIC_TOKEN` environment variable. See `.env.example` for details.
+- `npm run upload` - uploads a built ruleset package (from `npm run build`) to optic cloud. 
+  > Ensure that you set the `OPTIC_TOKEN` environment variable. You can get a token at https://app.useoptic.com
 - `npm run test` - runs tests
 - `npm run typecheck` - runs typechecking
 
@@ -54,14 +55,14 @@ const spec = TestHelpers.createEmptySpec() // returns a base OpenAPI spec
 const results = TestHelpers.runRulesWithInputs(rules, beforeSpec, afterSpec) // runs rules against a before and after spec
 ```
 
-### Building and publishing your rulesets
+### Building and uploading your rulesets
 
-Published rulesets must be bundled into a single file that exports the name of the ruleset and the rules (see [format below](#customizing-your-ruleset-package)).
+Uploaded rulesets must be bundled into a single file that exports the name of the ruleset and the rules (see [format below](#customizing-your-ruleset-package)).
 
-This starter template comes pre-configured with a build and publish step that matches the expected output (see the scripts field in the package.json). To publish your ruleset, follow the steps below:
+This starter template comes pre-configured with a build and upload step that matches the expected output (see the scripts field in the package.json). To upload your ruleset, follow the steps below:
 - run `npm run build` - this will bundle the `src/main.ts` code into a single JS file and output it to `build/main.js`
   - this starter template uses esbuild, but any other bundler could be used (e.g. webpack, parcel, etc)
-- run `npm run publish` - this will publish the bundled rulesets (`build/main.js`) to optic cloud
+- run `npm run upload` - this will upload the bundled rulesets (`build/main.js`) to optic cloud
   - this package will be then available to be used locally and in optic cloud
 
 #### Getting your own token
@@ -70,14 +71,14 @@ A token is required to upload rules to Optic. You can get a token by signing up 
 
 ### Using your rulesets in optic diff and Optic Cloud
 
-Once you have published your ruleset, you can refer to your uploaded ruleset in local runs and optic cloud by it's identifier `@org-slug/ruleset-name` (by default, we identify rulesets in your org). You can specify this ruleset in your `optic.dev.yml` file for optic diff running, and specify which rules to run in Optic cloud in the ruleset page on our [app](https://app.useoptic.com).
+Once you have uploaded your ruleset, you can refer to your uploaded ruleset in local runs and optic cloud by it's identifier `@org-slug/ruleset-name` (by default, we identify rulesets in your org). You can specify this ruleset in your `optic.dev.yml` file for optic diff running, and specify which rules to run in Optic cloud in the ruleset page on our [app](https://app.useoptic.com).
 
 
 ## Customizing your ruleset package
 
 If you want to update the build environment, CI setup, dependencies or any other set up, you can continue to customize from this starter template. 
 
-The main requirements for a published ruleset are:
+The main requirements for a uploaded ruleset are:
 - Must be a single bundled JS file
   - i.e. must not import any other packages at run time
 - The JS file must include default exports of in the shape of (files should use ES Modules)
