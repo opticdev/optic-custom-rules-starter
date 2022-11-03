@@ -2,7 +2,7 @@
   "name": "name-of-custom-rules-package",
   "version": "1.0.0",
   "scripts": {
-    "upload": "optic ruleset publish build/main.js",
+    "upload": "optic ruleset upload build/main.js",
     "build": "esbuild src/main.ts --bundle --main-fields=module,main --platform=node --sourcemap=inline --minify --outfile=build/main.js",
     "test": "jest",
     "typecheck": "tsc"
