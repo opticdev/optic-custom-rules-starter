@@ -12,7 +12,7 @@ export const MustHaveApiVersion = new SpecificationRule({
 });
 
 export default {
-  name: "example-ruleset",
+  name: "name-of-custom-rules-package",
   description: "An example ruleset that validates things in OpenAPI",
   // A JSON schema object
   configSchema: {
@@ -26,7 +26,7 @@ export default {
   },
   rulesetConstructor: (options: { required_on: "always" | "added" }) => {
     return new Ruleset({
-      name: "example-ruleset",
+      name: "name-of-custom-rules-package",
       rules: [MustHaveApiVersion],
     });
   },
