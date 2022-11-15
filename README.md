@@ -1,5 +1,7 @@
 # Optic Ruleset
 
+> ℹ️ This repo was bootstrapped with `optic init`
+
 Define your own custom Optic rules by building off of our [ruleset package](https://github.com/opticdev/optic/tree/main/projects/rulesets-base). Learn more by reading our [reference documents](https://github.com/opticdev/optic/blob/main/projects/rulesets-base/docs/Reference.md)
 
 ## Quick start guide
