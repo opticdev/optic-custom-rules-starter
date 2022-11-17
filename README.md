@@ -54,7 +54,7 @@ A sample test is added under [src/_\_tests__/main.test.ts](./src/__tests__/main.
 
 ```javascript
 const spec = TestHelpers.createEmptySpec() // returns a base OpenAPI spec
-const results = TestHelpers.runRulesWithInputs(rules, beforeSpec, afterSpec) // runs rules against a before and after spec
+const results = await TestHelpers.runRulesWithInputs(rules, beforeSpec, afterSpec) // runs rules against a before and after spec
 ```
 
 ### Building and uploading your rulesets
