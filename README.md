@@ -75,6 +75,8 @@ A token is required to upload rules to Optic. You can get a token by signing up 
 
 Once you have uploaded your ruleset, you can refer to your uploaded ruleset in local runs and optic cloud by it's identifier `@org-slug/ruleset-name` (by default, we identify rulesets in your org). You can specify this ruleset in your `optic.dev.yml` file for optic diff running, and specify which rules to run in Optic cloud in the ruleset page on our [app](https://app.useoptic.com).
 
+You can also run a ruleset locally by specifying the path to the built JS file (by default this is `<path_to_ruleset_project>/build/main.js`) to run a ruleset before uploading.
+
 
 ## Customizing your ruleset package
 
