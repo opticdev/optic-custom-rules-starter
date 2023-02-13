@@ -18,7 +18,8 @@ Start by running `npm install` or `yarn install` to install the relevant node_mo
 Scripts:
 - `npm run build` - builds and minifies a ruleset package.
 - `npm run upload` - uploads a built ruleset package (from `npm run build`) to optic cloud. 
-  > Ensure that you set the `OPTIC_TOKEN` environment variable. You can get a token at https://app.useoptic.com
+  > 💡 Ensure that you set the `OPTIC_TOKEN` environment variable. You can get a token at https://app.useoptic.com
+  - It's recommended to create an `organization_access_token` here for the organization you would like to upload your ruleset to. You can also use a personal access token, but you will need to set the `--organization-id=orgId` flag on the `package.json > scripts > upload` step.
 - `npm run test` - runs tests
 - `npm run typecheck` - runs typechecking
 
