@@ -3,7 +3,7 @@ import { MustHaveOperationDescription } from "../main";
 import { TestHelpers } from "@useoptic/rulesets-base";
 import { OpenAPIV3 } from "@useoptic/openapi-utilities";
 
-test("MustHaveOperationDescription", () => {
+test("MustHaveOperationDescription", async () => {
   const beforeApiSpec: OpenAPIV3.Document = {
     ...TestHelpers.createEmptySpec(),
   };
@@ -34,7 +34,7 @@ test("MustHaveOperationDescription", () => {
       }
     }
   };
-  const ruleResults = TestHelpers.runRulesWithInputs(
+  const ruleResults = await TestHelpers.runRulesWithInputs(
     [MustHaveOperationDescription],
     beforeApiSpec,
     afterApiSpec
